@@ -1,0 +1,35 @@
+<table id="{{ name }}" {{ datatable_html_attr(attributes) }}>
+    <thead>
+        <tr>
+            {% for column in columns %}
+                <th {{ datatable_html_attr(column.attributes) }}>
+                    {{ column.label }}
+                </th>
+            {% endfor %}
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if data is defined %}
+            {% for row in data %}
+                <tr {{ datatable_html_attr(row.attributes) }}>
+                    {% for cell_name, cell in row.data %}
+                        <td {{ datatable_html_attr(row.getCellAttributes(cell_name)) }}>
+                            {{ cell }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+
+    <tfoot>
+        <tr>
+            {% for column in columns %}
+                <th {{ datatable_html_attr(column.attributes) }}>
+                    {{ column.label }}
+                </th>
+            {% endfor %}
+        </tr>
+    </tfoot>
+</table>

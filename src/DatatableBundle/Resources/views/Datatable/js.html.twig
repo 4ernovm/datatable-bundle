@@ -1,0 +1,35 @@
+<script>
+    (function () {
+        if (!document.datatables) {
+            document.datatables = {};
+        }
+
+        document.datatables.{{ name }} = $("#{{ name }}").dataTable({
+
+            {% for (key, value in options) %}
+                "{{ key }}": {{ datatable_attr(value) }},
+            {% endfor %}
+
+            "aoColumns": [
+                {% for column in columns %}
+                    {
+                        {% for key, value in column.options %}
+                            "{{ key }}": {{ datatable_attr(value) }},
+                        {% endfor %}
+
+                        "sName": "{{ column.name }}",
+                        "mData": "{{ column.name }}"
+                    },
+                {% endfor %}
+            ]
+        });
+
+        {% if interactive %}
+        setInterval(function () {document.datatables.{{ name }}.fnDraw(false); }, {{ interactive }});
+        {% endif %}
+
+        {% if delay %}
+        document.datatables.{{ name }}.fnSetFilteringDelay({{ delay }});
+        {% endif %}
+    }) (jQuery);
+</script>
