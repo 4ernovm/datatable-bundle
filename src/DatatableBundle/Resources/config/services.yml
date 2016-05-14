@@ -3,8 +3,7 @@ services:
         class: 'Chernoff\DatatableBundle\Templating\Templating'
         arguments:
             - '@templating'
-            - '%chernoff_datatable.templates.html%'
-            - '%chernoff_datatable.templates.js%'
+            - '%chernoff_datatable.templates'
 
     chernoff_datatable:
         class: 'Chernoff\DatatableBundle\Manager'
