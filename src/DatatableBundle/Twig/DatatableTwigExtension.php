@@ -4,7 +4,7 @@ namespace Chernoff\DatatableBundle\Twig;
 
 use Chernoff\Datatable\Manager;
 use Twig_Extension;
-use Twig_Function;
+use Twig_SimpleFunction;
 
 /**
  * Class DatatableTwigExtension
@@ -26,10 +26,10 @@ class DatatableTwigExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new Twig_Function("datatable_render", [$this, "datatableRender"], ["is_safe" => ["all"]]),
-            new Twig_Function("datatable_render_js", [$this, "datatableRenderJs"], ["is_safe" => ["all"]]),
-            new Twig_Function("datatable_attr", [$this, "datatableAttribute"], ["is_safe" => ["all"]]),
-            new Twig_Function("datatable_html_attr", [$this, "datatableHtmlAttribute"], ["is_safe" => ["all"]]),
+            new Twig_SimpleFunction("datatable_render", [$this, "datatableRender"], ["is_safe" => ["all"]]),
+            new Twig_SimpleFunction("datatable_render_js", [$this, "datatableRenderJs"], ["is_safe" => ["all"]]),
+            new Twig_SimpleFunction("datatable_attr", [$this, "datatableAttribute"], ["is_safe" => ["all"]]),
+            new Twig_SimpleFunction("datatable_html_attr", [$this, "datatableHtmlAttribute"], ["is_safe" => ["all"]]),
         );
     }
 
@@ -43,12 +43,11 @@ class DatatableTwigExtension extends Twig_Extension
     }
 
     /**
-     * @param Manager $datatable
      * @return string
      */
-    public function datatableRenderJs(Manager $datatable)
+    public function datatableRenderJs()
     {
-        return $datatable::getJS();
+        return Manager::getJS();
     }
 
     /**
