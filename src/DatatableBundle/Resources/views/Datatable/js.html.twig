@@ -6,7 +6,7 @@
 
         document.datatables.{{ name }} = $("#{{ name }}").dataTable({
 
-            {% for (key, value in options) %}
+            {% for key, value in options %}
                 "{{ key }}": {{ datatable_attr(value) }},
             {% endfor %}
 
