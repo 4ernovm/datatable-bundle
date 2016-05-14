@@ -1,0 +1,23 @@
+{
+    "name": "4ernovm/datatable-bundle",
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/symfony": "~2.3|~3.0",
+        "4ernovm/datatable": "0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "authors": [
+        {
+            "name": "Michael Chernov",
+            "email": "4ernovm@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Chernoff\\DatatableBundle\\": "src/DatatableBundle"
+        }
+  }
+}

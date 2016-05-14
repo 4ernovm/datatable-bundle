@@ -1,0 +1,17 @@
+services:
+    chernoff_datatable.templating:
+        class: 'Chernoff\DatatableBundle\Templating\Templating'
+        arguments:
+            - '@templating'
+            - '%chernoff_datatable.templates.html%'
+            - '%chernoff_datatable.templates.js%'
+
+    chernoff_datatable:
+        class: 'Chernoff\DatatableBundle\Manager'
+        arguments:
+            - '@chernoff_datatable.templating'
+
+    chernoff_datatables.twig.extension:
+        class: Chernoff\DatatableBundle\Twig\DatatableTwigExtension
+        tags:
+            - { name: twig.extension }
