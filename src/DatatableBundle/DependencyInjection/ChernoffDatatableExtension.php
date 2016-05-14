@@ -23,5 +23,14 @@ class ChernoffDatatableExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+        $container->setParameter('chernoff_datatable', $config);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlias()
+    {
+        return 'chernoff_datatable';
     }
 }

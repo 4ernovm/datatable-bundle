@@ -17,25 +17,18 @@ class Templating implements TemplatingInterface
     private $templating;
 
     /**
-     * @var string
+     * @var array
      */
-    private $html;
-
-    /**
-     * @var string
-     */
-    private $js;
+    private $templates;
 
     /**
      * @param EngineInterface $templating
-     * @param string $html
-     * @param string $js
+     * @param array $templates
      */
-    public function __construct(EngineInterface $templating, $html, $js)
+    public function __construct(EngineInterface $templating, array $templates)
     {
         $this->templating = $templating;
-        $this->html = $html;
-        $this->js = $js;
+        $this->templates = $templates;
     }
 
     /**
@@ -44,7 +37,7 @@ class Templating implements TemplatingInterface
      */
     public function html(array $params)
     {
-        return $this->templating->render($this->html, $params);
+        return $this->templating->render($this->templates['html'], $params);
     }
 
     /**
@@ -53,6 +46,6 @@ class Templating implements TemplatingInterface
      */
     public function js(array $params)
     {
-        return $this->templating->render($this->js, $params);
+        return $this->templating->render($this->templates['js'], $params);
     }
 }
