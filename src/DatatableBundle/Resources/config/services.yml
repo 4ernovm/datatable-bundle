@@ -3,10 +3,10 @@ services:
         class: 'Chernoff\DatatableBundle\Templating\Templating'
         arguments:
             - '@templating'
-            - '%chernoff_datatable.templates'
+            - '%chernoff_datatable.templates%'
 
     chernoff_datatable:
-        class: 'Chernoff\DatatableBundle\Manager'
+        class: 'Chernoff\Datatable\Manager'
         arguments:
             - '@chernoff_datatable.templating'
 
