@@ -2,7 +2,7 @@
     "name": "4ernovm/datatable-bundle",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^4.0",
+        "symfony/framework-bundle": "^4.0",
         "4ernovm/datatable": "0.*"
     },
     "authors": [
