@@ -3,7 +3,7 @@
 namespace Chernoff\DatatableBundle\Templating;
 
 use Chernoff\Datatable\TemplatingInterface;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Twig\Environment;
 
 /**
  * Class Templating
@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 class Templating implements TemplatingInterface
 {
     /**
-     * @var EngineInterface
+     * @var Environment
      */
     private $templating;
 
@@ -22,10 +22,10 @@ class Templating implements TemplatingInterface
     private $templates;
 
     /**
-     * @param EngineInterface $templating
+     * @param Environment $templating
      * @param array $templates
      */
-    public function __construct(EngineInterface $templating, array $templates)
+    public function __construct(Environment $templating, array $templates)
     {
         $this->templating = $templating;
         $this->templates = $templates;
