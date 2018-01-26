@@ -3,14 +3,14 @@
 namespace Chernoff\DatatableBundle\Twig;
 
 use Chernoff\Datatable\Manager;
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class DatatableTwigExtension
  * @package Chernoff\DatatableBundle\Twig
  */
-class DatatableTwigExtension extends Twig_Extension
+class DatatableTwigExtension extends AbstractExtension
 {
     /**
      * {@inheritdoc}
@@ -26,10 +26,10 @@ class DatatableTwigExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction("datatable_render", [$this, "datatableRender"], ["is_safe" => ["all"]]),
-            new Twig_SimpleFunction("datatable_render_js", [$this, "datatableRenderJs"], ["is_safe" => ["all"]]),
-            new Twig_SimpleFunction("datatable_attr", [$this, "datatableAttribute"], ["is_safe" => ["all"]]),
-            new Twig_SimpleFunction("datatable_html_attr", [$this, "datatableHtmlAttribute"], ["is_safe" => ["all"]]),
+            new TwigFunction("datatable_render", [$this, "datatableRender"], ["is_safe" => ["all"]]),
+            new TwigFunction("datatable_render_js", [$this, "datatableRenderJs"], ["is_safe" => ["all"]]),
+            new TwigFunction("datatable_attr", [$this, "datatableAttribute"], ["is_safe" => ["all"]]),
+            new TwigFunction("datatable_html_attr", [$this, "datatableHtmlAttribute"], ["is_safe" => ["all"]]),
         );
     }
 
