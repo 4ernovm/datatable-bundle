@@ -2,7 +2,7 @@ services:
     chernoff_datatable.templating:
         class: 'Chernoff\DatatableBundle\Templating\Templating'
         arguments:
-            - '@templating'
+            - '@Twig\Environment'
             - '%chernoff_datatable.templates%'
 
     chernoff_datatable:
