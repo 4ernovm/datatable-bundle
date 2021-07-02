@@ -16,8 +16,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('chernoff_datatables');
+        $treeBuilder = new TreeBuilder('chernoff_datatables');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
