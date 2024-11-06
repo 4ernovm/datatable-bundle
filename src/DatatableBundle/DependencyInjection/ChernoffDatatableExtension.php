@@ -29,7 +29,7 @@ class ChernoffDatatableExtension extends Extension
     /**
      * @return string
      */
-    public function getAlias()
+    public function getAlias() : string
     {
         return 'chernoff_datatable';
     }
