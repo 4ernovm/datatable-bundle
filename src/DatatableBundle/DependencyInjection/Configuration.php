@@ -14,10 +14,12 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritDoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
+
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('chernoff_datatables');
+        $treeBuilder = new TreeBuilder('chernoff_datatables');
+
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
